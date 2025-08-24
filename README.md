@@ -55,48 +55,56 @@
 <br>
 
 
-## ⚙️ 설치 및 설정
+## ⚙️ 설치 및 실행 가이드
 
-1.  이 저장소를 복제(clone)합니다:
-
+1.  다음 프로그램을 설치합니다.
+    - MySQL Server (환경변수 설정 필요)
+    - Java JDK (환경변수 설정 필요)
+    - Git
+ 
+2.  프로젝트 복제 (Clone)
+    터미널을 열고 원하는 경로로 이동한 뒤, 아래 명령어로 프로젝트를 복제합니다.
     ```bash
     git clone https://github.com/jiu-jung/ewha-ribbon.git
+    cd ewha-ribbon
     ```
 
-2.  [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)가 설치되어 있지 않다면 설치합니다.
+3.  데이터베이스 설정 <br>
+     `db/mysql` 디렉토리로 이동하여 MySQL에 관리자 계정(root)으로 접속합니다.
+      ```bash
+      cd ewha-ribbon/db/mysql
+      mysql -u root -p
+      ```
+     `mysql>` 프롬프트가 나타나면, 아래의 SQL 명령어들을 순서대로 입력하여 실행합니다.
+      ```bash
+      DROP DATABASE IF EXISTS DB2024Team13;
+      CREATE USER 'DB2024Team13'@'localhost' IDENTIFIED BY 'DB2024Team13';
+      GRANT ALL PRIVILEGES ON DB2024Team13.* TO 'DB2024Team13'@'localhost';
+      FLUSH PRIVILEGES;
+      source create.sql;
+      EXIT;
+      ```
 
-3.  데이터베이스를 설정합니다:
+4.  `db/src` 디렉토리로 이동하여 메인 Java 파일을 컴파일합니다:
+    ```bash
+    cd ewha-ribbon/db/src
+    javac db/DB2024Team13_main.java
+    ```
 
-      - `mysql` 디렉토리로 이동하여 `create.sql` 스크립트를 실행해 데이터베이스를 초기화합니다:
-        ```bash
-        cd ewha-ribbon/mysql
-        mysql -u [username] -p [password] < create.sql
-        ```
-
-4.  `db/src/db` 디렉토리로 이동하여 메인 Java 파일을 컴파일합니다:
+5.  `db/src` 디렉토리에서 애플리케이션을 실행합니다:
 
     ```bash
-    cd ewha-ribbon/db/src/db
-    javac DB2024Team13_main.java
+    java -cp ".;../../lib/mysql-connector-java-8.0.23.jar" db.DB2024Team13_main
     ```
-
-5.  애플리케이션을 실행합니다:
-
-    ```bash
-    java DB2024Team13_main
-    ```
-
-*앱을 실행하기 전에 MySQL 서버가 실행 중이고 연결이 허용되도록 설정되어 있는지 확인하세요.
-
+   
 <br>
-
 
 ## 🖱️ 사용 방법
 
-1.  애플리케이션을 실행합니다.
-2.  구역을 선택하거나 검색 기능을 사용하여 음식 종류나 별점 등으로 결과를 필터링하며 식당을 탐색합니다.
-3.  각 식당의 상세 정보를 확인합니다.
-4.  방문한 식당에 대한 별점과 리뷰를 추가합니다.
+1.  애플리케이션이 실행되면 테스트 계정(ID: 1111, PW: 2222)으로 로그인합니다.
+2.  **메인화면**: 교내 건물, 음식 종류, 정렬 기준을 조정하며 식당을 탐색합니다. 식당을 클릭하여 상세페이지에서 별점, 메뉴, 주소, 비건 여부 등을 확인합니다.
+3.  **검색화면**: 식당이나 메뉴 이름으로 메뉴를 검색합니다.
+4.  **내정보화면**: 북마크/리뷰/주문 정보를 조회합니다.
 
 
 <br>
@@ -104,7 +112,7 @@
 
 ## 🤝 기여하기
 
-이 프로젝트에 기여하고 싶으시다면, 이 저장소를 포크(fork)하여 풀 리퀘스트(pull request)를 보내주세요.
+이 프로젝트에 기여하고 싶으시다면, 이 저장소를 fork하여 pull request를 보내주세요.
 
 <br>
 
