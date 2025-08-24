@@ -35,6 +35,9 @@
 ## 🗃️ 데이터베이스 구조
 
 이화리본은 **관계형 데이터베이스**를 사용하여 식당 데이터를 관리합니다. 데이터베이스 스키마 다이어그램은 다음과 같습니다.
+
+<br>
+
 <img width="678" height="331" alt="Image" src="https://github.com/user-attachments/assets/7ac3b4c3-37a3-4145-ac05-0f720ca7caab" />
 
 
