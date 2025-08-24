@@ -1,77 +1,89 @@
-# 🎀 EwhaRibbon - Desktop App for Exploring and Reviewing Zoned Restaurants Near Campus
+# 🎀 이화리본 - 캠퍼스 존(Zone)별 맛집 탐색 및 리뷰 앱
 
-## 📖 Overview
-EwhaRibbon is a Java desktop application designed specifically for students of Ewha Womans University to explore and review restaurants near the campus. The application categorizes restaurants by different zones based on campus buildings, allowing for efficient and targeted searches. Students can quickly find and review dining options by category and location, with additional features to streamline their experience.
+## 📖 개요
 
-## ✨ Features
-- **Filtering and Sorting**:
-  - **Filtering**: Choose from 21 building zones ('ECC' to 'Ihouse') and 8 food categories ('Korean' to 'Cafe') for precise searches.
-  - **Sorting**: Sort results by 'Order', 'Name', or 'Rating' after applying filters.
+**이화리본**은 이화여자대학교 학생들이 캠퍼스 건물을 기준으로 존(Zone)을 나누어 맛집을 탐색하고 리뷰를 공유할 수 있는 Java 데스크톱 애플리케이션입니다. 이 앱은 캠퍼스 건물을 기준으로 식당을 여러 구역으로 분류하여, 사용자가 효율적이고 원하는 식당을 정확하게 검색할 수 있도록 돕습니다. 학생들은 카테고리와 위치별로 음식점을 빠르게 찾고 리뷰할 수 있습니다.
 
-- **Real-time Bookmarking and Ratings**:
-  - **Bookmarking**: Save favorite restaurants and view them in the 'My Info' section.
-  - **Ratings**: Rate restaurants from 0 to 5 stars. Ratings are updated in real-time and shown as average scores.
+## ✨ 주요 기능
 
-- **Real-time Menu Updates**:
-  - **Menu Management**: Instant updates for menu changes ensure current information.
+  - **필터링 및 정렬**:
 
-- **Login and Logout Functionality**:
-  - **User & Admin Interfaces**: Distinct interfaces for users and admins with secure login and logout options.
+      - **필터링**: 'ECC'부터 '기숙사'까지 21개의 건물 구역과 '한식'부터 '카페'까지 8개의 음식 카테고리 중 선택하여 정확한 검색이 가능합니다.
+      - **정렬**: 필터를 적용한 후 '기본순', '이름순', '별점순'으로 결과를 정렬할 수 있습니다.
 
-## 💻 Technologies Used
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white)
+  - **실시간 북마크 및 별점**:
 
-- **JAVA** - Core programming language for the application.
-- **Swing & AWT** - creating the graphical user interface (GUI).
-- **JDBC** - handling database interactions.
-- **MySQL** - storing restaurant data.
+      - **북마크**: 즐겨찾는 식당을 저장하고 '내 정보' 섹션에서 확인할 수 있습니다.
+      - **별점**: 식당에 0점에서 5점까지 별점을 매길 수 있습니다. 별점은 실시간으로 업데이트되며 평균 점수로 표시됩니다.
 
-## ⚙️ Installation & Setup
+  - **실시간 메뉴 업데이트**:
 
-1. Clone this repository:
+      - **메뉴 관리**: 메뉴 변경 사항이 즉시 업데이트되어 항상 최신 정보를 보장합니다.
+
+  - **로그인 및 로그아웃 기능**:
+
+      - **사용자 및 관리자 인터페이스**: 안전한 로그인 및 로그아웃 옵션을 갖춘 사용자 및 관리자용 별도 인터페이스를 제공합니다.
+
+## 💻 사용 기술
+
+  - **JAVA** - 애플리케이션의 핵심 프로그래밍 언어입니다.
+  - **JDBC** - 데이터베이스 연동을 처리합니다.
+  - **MySQL** - 식당 데이터를 저장합니다.
+  - **Swing & AWT** - 그래픽 사용자 인터페이스(GUI) 제작에 사용됩니다.
+
+## ⚙️ 설치 및 설정
+
+1.  이 저장소를 복제(clone)합니다:
+
     ```bash
     git clone https://github.com/jiu31/ewha-ribbon.git
     ```
 
-2. Install [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html) if it is not already installed.
+2.  [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)가 설치되어 있지 않다면 설치합니다.
 
-3. Set up the database:
-   - Navigate to the `mysql` directory and execute the `create.sql` script to initialize the database:
-     ```bash
-     cd ewha-ribbon/mysql
-     mysql -u [username] -p [password] < create.sql
-     ```
+3.  데이터베이스를 설정합니다:
 
-4. Navigate to the `db/src/db` directory and compile the main Java file:
+      - `mysql` 디렉토리로 이동하여 `create.sql` 스크립트를 실행해 데이터베이스를 초기화합니다:
+        ```bash
+        cd ewha-ribbon/mysql
+        mysql -u [username] -p [password] < create.sql
+        ```
+
+4.  `db/src/db` 디렉토리로 이동하여 메인 Java 파일을 컴파일합니다:
+
     ```bash
     cd ewha-ribbon/db/src/db
     javac DB2024Team13_main.java
     ```
 
-5. Run the application:
+5.  애플리케이션을 실행합니다:
+
     ```bash
     java DB2024Team13_main
     ```
 
-Make sure that your MySQL server is running and configured to allow connections before running the app.
+/*앱을 실행하기 전에 MySQL 서버가 실행 중이고 연결이 허용되도록 설정되어 있는지 확인하세요.
 
-## 🗃️ Database Structure
-EwhaRibbon uses a **relational database** to manage restaurant data. Key tables include:
+## 🖱️ 사용 방법
 
-- **restaurants**: Stores general restaurant information like name, address, and category.
-- **menus**: Contains menu items for each restaurant.
-- **reviews**: Allows users to write and read reviews of restaurants.
-- **bookmarks**: Enables users to save restaurants. Stores the restaurant name and the user’s ID.
+1.  애플리케이션을 실행합니다.
+2.  구역을 선택하거나 검색 기능을 사용하여 음식 종류나 별점 등으로 결과를 필터링하며 식당을 탐색합니다.
+3.  각 식당의 상세 정보를 확인합니다.
+4.  방문한 식당에 대한 별점과 리뷰를 추가합니다.
 
-## 🖱️ How to Use
-1. Launch the application.
-2. Explore restaurants by selecting a zone or using the search function to filter results by cuisine, price, or ratings.
-3. View detailed information for each restaurant.
-4. Add ratings and ratings for the restaurants you’ve visited.
+## 🗃️ 데이터베이스 구조
 
-## 🤝 Contributing
-If you would like to contribute to the project, feel free to fork the repository and submit a pull request.
+이화리본은 **관계형 데이터베이스**를 사용하여 식당 데이터를 관리합니다. 주요 테이블은 다음과 같습니다:
 
-## 📄 License
-This project is licensed under the MIT License.
+  - **restaurants**: 식당의 이름, 주소, 카테고리와 같은 일반적인 정보를 저장합니다.
+  - **menus**: 각 식당의 메뉴 항목을 포함합니다.
+  - **reviews**: 사용자가 식당 리뷰를 작성하고 읽을 수 있도록 합니다.
+  - **bookmarks**: 사용자가 식당을 저장할 수 있게 합니다. 식당 이름과 사용자 ID를 저장합니다.
+
+## 🤝 기여하기
+
+이 프로젝트에 기여하고 싶으시다면, 이 저장소를 포크(fork)하여 풀 리퀘스트(pull request)를 보내주세요.
+
+## 📄 라이선스
+
+이 프로젝트는 MIT 라이선스를 따릅니다.
