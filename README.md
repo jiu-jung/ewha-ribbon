@@ -60,7 +60,7 @@
 1.  이 저장소를 복제(clone)합니다:
 
     ```bash
-    git clone https://github.com/jiu31/ewha-ribbon.git
+    git clone https://github.com/jiu-jung/ewha-ribbon.git
     ```
 
 2.  [Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html)가 설치되어 있지 않다면 설치합니다.
